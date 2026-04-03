@@ -1,0 +1,46 @@
+:root {
+    --primary: #7eacb5; /*Botoes primarios, links, icones importantes, Destaques em geral*/
+    --primary-hover: ;
+    --secondary:#1b242a; /*Headers, rodapes, fundos de areas importantes, titulos grandes*/
+    --secondary-hover: ;
+    --tertiary:white; /*Fundo dark, cards escuros*/
+    --tertiary-hover: ;
+    --text: #ffff;
+    --text-muted: #BABABA;
+    --body-background: #f5e4c8;
+    --border:#BABABA;
+    --border-dark: #000051;
+    --border-strong: #173DED; 
+
+    --space-xs: 0.25rem;   /* 4px - espaços mínimos */
+    --space-sm: 0.5rem;    /* 8px - espaços pequenos */
+    --space-md: 1rem;      /* 16px - espaço padrão */
+    --space-lg: 1.5rem;    /* 24px - espaços maiores */
+    --badge-padding: 2px 6px;
+
+    --font: system-ui, -apple-system, sans-serif;
+    --text-sm: 0.875rem;  /* 14px */
+    --text-xs: 0.75rem;   /* 12px */
+    --text-md: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xlg:1.25rem;
+    --font-weight-black: 700;
+    --font-weight-bold: 600;
+    --font-weight-medium: 500;
+    --radius: 10px;
+    --radius-btn: 6px;
+    --radius-full: 9999px; 
+    --radius-badge:20px;
+
+    --shadow: 0 8px 24px rgba(0, 0, 41, 0.25);
+    --shadow-transition: 0 8px 24px rgba(0, 0, 41, 0.735);
+    --shadow-dark: 0 6px 25px rgba(23, 62, 237, 0.299);
+    --shadow-dark-hover:0 10px 40px rgba(23, 62, 237, 0.372);
+    
+    --blur: 20px;
+    --transition: 200ms ease;
+
+    --nav-height: 5rem;
+
+    --safe-area: env(safe-area-inset-bottom, 0px);
+}
