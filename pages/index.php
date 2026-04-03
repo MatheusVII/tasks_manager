@@ -13,5 +13,8 @@
     <main>
 
     </main>
+    <?php
+        include '../includes/_mobileNav.php';
+    ?>
 </body>
 </html>
