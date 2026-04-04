@@ -1,16 +1,21 @@
 :root {
-    --primary: #7eacb5; /*Botoes primarios, links, icones importantes, Destaques em geral*/
-    --primary-hover: ;
-    --secondary:#1b242a; /*Headers, rodapes, fundos de areas importantes, titulos grandes*/
-    --secondary-hover: ;
-    --tertiary:white; /*Fundo dark, cards escuros*/
-    --tertiary-hover: ;
-    --text: #ffff;
+    --primary: #7eacb5;
+    --primary-hover: #6b98a0;
+
+    --secondary: #1b242a;
+    --secondary-hover: #2a343b;
+
+    --tertiary: #ffffff;
+    --tertiary-hover: #f0f0f0;
+
+    --text: #ffffff;
     --text-muted: #BABABA;
+
     --body-background: #f5e4c8;
-    --border:#BABABA;
-    --border-dark: #000051;
-    --border-strong: #173DED; 
+
+    --danger: #e57373;
+    --success: #81c784;
+    --warning: #ffb74d;
 
     --space-xs: 0.25rem;   /* 4px - espaços mínimos */
     --space-sm: 0.5rem;    /* 8px - espaços pequenos */
@@ -27,7 +32,7 @@
     --font-weight-black: 700;
     --font-weight-bold: 600;
     --font-weight-medium: 500;
-    --radius: 10px;
+    --radius: 3px;
     --radius-btn: 6px;
     --radius-full: 9999px; 
     --radius-badge:20px;
@@ -41,6 +46,7 @@
     --transition: 200ms ease;
 
     --nav-height: 5rem;
+    --mobile-nav-height: 5rem;
 
     --safe-area: env(safe-area-inset-bottom, 0px);
 }

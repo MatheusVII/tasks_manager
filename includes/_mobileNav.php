@@ -1,15 +1,15 @@
 <nav class="_mobile-nav">
     <div class="main">
-        <a href="">
+        <button id="canceladas">
             <img src="../assets/icons/cancelamento.png" alt="">
-        </a>
+        </button>
 
-        <a href="" class="active">
+        <button class="active" id="pendentes">
             <img src="../assets/icons/pendentes.png" alt="">
-        </a>
+        </button>
 
-        <a href="">
+        <button id="concluidas">
             <img src="../assets/icons/feito.png" alt="">
-        </a>
+        </button>
     </div>
 </nav>

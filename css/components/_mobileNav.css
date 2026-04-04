@@ -15,11 +15,12 @@
         justify-content: space-between;
         align-items: center;
 
-        & a{
+        & button{
             width: 2.5rem;
             height: 2.5rem;
             padding: 5px;
             border-radius: var(--radius-full);
+            transition: all 200ms ease;
 
             & img{
                 width:100%;

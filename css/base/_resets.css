@@ -16,6 +16,7 @@ body {
     font-family: var(--font);
     background: var(--body-background);
     padding-top: var(--nav-height);
+    padding-bottom: var(--mobile-nav-height);
     color: var(--text);
     display:flex;
     flex-direction: column;
