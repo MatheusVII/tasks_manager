@@ -14,7 +14,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sync": "node ./src/config/sync.js"
+    "sync": "node ./src/config/sync.js",
+    "dev": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
