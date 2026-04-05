@@ -1,3 +1,13 @@
-GET http://localhost:3000/api/tasks/search
+GET http://localhost:3000/api/tasks/search?match=post
 
 ###
+
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "title": "Tarefa de teste",
+    "priority": "urgent",
+    "dueDate": "2026-05-05",
+    "description":"Uma tarefa criada para teste da rota post"
+}

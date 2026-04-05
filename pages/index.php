@@ -13,7 +13,6 @@
     <div class="overflow" id="overflow"></div>
     <section class="_index-modal-criar-tarefa" id="newTaskModal">
             <h3>Nova Tarefa</h3>
-
             <div class="form">
                 <div class="inputs">
                     <h4>Titulo</h4>
@@ -23,19 +22,19 @@
                     <h4>Prioridade da tarefa</h4>
                     <div class="radiosDiv">
                         <div class="radio">
-                            <input type="radio" name="low" id="low" value="low">
+                            <input type="radio" name="priority" id="low" value="low" checked>
                             <label for="low" id="lowLabel">Baixa</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" name="low" id="low" value="low">
+                            <input type="radio" name="priority" id="medium" value="medium">
                             <label for="low" id="mediumLabel">Media</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" name="low" id="low" value="low">
+                            <input type="radio" name="priority" id="high" value="high">
                             <label for="low" id="highLabel">Alta</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" name="low" id="low" value="low">
+                            <input type="radio" name="priority" id="urgent" value="urgent">
                             <label for="low" id="urgentLabel">Urgente</label>
                         </div>
                     </div>
