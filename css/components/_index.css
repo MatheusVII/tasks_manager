@@ -187,7 +187,6 @@
         border-bottom: solid 1px var(--primary);
 
         & p{
-            background: var(--danger);
             width: 4rem;
             text-align: center;
             color: white;
@@ -195,6 +194,22 @@
             padding: 2px 6px;
             font-size: var(--text-xs);
             font-weight: bold;
+
+            &.low{
+                background: var(--low);
+            }
+
+            &.medium{
+                background: var(--success);
+            }
+
+            &.high{
+                background: var(--warning);
+            }
+
+            &.urgent{
+                background: var(--danger);
+            }
         }
 
         & button{

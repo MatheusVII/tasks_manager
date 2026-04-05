@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/tasks/search?match=post
+GET http://localhost:3000/api/tasks/search
 
 ###
 

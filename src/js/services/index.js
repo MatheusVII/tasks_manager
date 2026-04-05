@@ -21,3 +21,50 @@ export async function createTask(){
         newTaskModal();
    }    
 }
+
+export async function listTasks(){
+    const tasksList = document.querySelector("#tasksList");
+    const priorities = {low: {text: "Baixa", class: "low"}, medium: { text: "Media", class: "medium"}, high: { text: "Alta", class: "high"}, urgent: { text: "Urgente", class: "urgent"}};
+
+    const res = await fetch("http://localhost:3000/api/tasks/search", { method: "GET" });
+
+    const data = await res.json()
+
+    if(res.status === 200){
+        data.data.forEach(task => {
+            let priority = task.priority;
+            let createdDate = new Date(task.createdAt).toLocaleDateString("pt-BR");
+            let dueDate = new Date(task.dueDate).toLocaleDateString("pt-BR");
+            let li = document.createElement("li");
+            li.innerHTML = `
+                <li>
+                    <div class="prioridade">
+                        <p class='${priorities[priority].class}'>${priorities[priority].text}</p>
+                        <button><img src="../assets/icons/concluida.png" alt=""></button>
+                    </div>
+                    <div class="titulo">
+                        <h3>${task.title}</h3>
+                    </div>
+                    <div class="descricao">
+                        <p>${task.description}</p>
+                    </div>
+                    <div class="footer">
+                        <div class="date">
+                            <div class="criado">
+                                <h3>Criado Em</h3>
+                                <h3>${createdDate}</h3>
+                            </div>
+                            <div class="expirado">
+                                <h3>Expira Em</h3>
+                                <h3>${dueDate}</h3>
+                            </div>
+                        </div>
+                        <button><img src="../assets/icons/lixeira.png" alt=""></button>
+                    </div>
+                </li>
+            `
+
+            tasksList.appendChild(li);
+        })
+    }
+}

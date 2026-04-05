@@ -16,6 +16,12 @@ export function newTaskModal(){
 
     modal.classList.toggle('active');
     overflow.classList.toggle('active');
+
+    const inputs = document.querySelectorAll("#newTaskModal input");
+    const textarea = document.querySelector("textarea[name='description']");
+
+    textarea.value = "";
+    inputs.forEach(i => { i.value = "" }); 
 }
 
 export function closeModals(){

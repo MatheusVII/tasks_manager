@@ -60,8 +60,8 @@
                 <button id="newTaskButton">Nova Tarefa</button>
             </div>
 
-            <ul class="lista-tarefas-pendentes">
-                <li>
+            <ul class="lista-tarefas-pendentes" id="tasksList">
+                <!-- <li>
                     <div class="prioridade">
                         <p>Urgente</p>
                         <button><img src="../assets/icons/concluida.png" alt=""></button>
@@ -85,7 +85,7 @@
                         </div>
                         <button><img src="../assets/icons/lixeira.png" alt=""></button>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </section>
     </main>
