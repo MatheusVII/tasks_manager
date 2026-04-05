@@ -1,3 +1,178 @@
+._index-modal-criar-tarefa{
+    width: 80%;
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background: var(--tertiary);
+    z-index: 9999;
+    border-radius: var(--radius);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 200ms ease;
+    border: solid 1px var(--primary);
+    color: var(--secondary);
+
+    & h3{
+        font-size: var(--text-xlg);
+        text-align: center;
+        border-bottom: solid 1px var(--secondary);
+        padding-bottom: 5px;
+    }
+
+    & .form{
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & .inputs{
+            width:100%;
+
+            & input{
+                width: 100%;
+                height: 2.5rem;
+                padding: 0 5px;
+                font-size: var(--text-sm);
+                border-radius: var(--radius);
+                border: solid 1px var(--secondary);
+                outline: none;
+                transition: all 200ms ease;
+
+                &:focus-visible{
+                    border-color: var(--primary);
+                }
+            }
+
+            & textarea{
+                width: 100%;
+                height: 3rem;
+                padding: 5px;
+                border-radius: var(--radius);
+                border: solid 1px var(--secondary);
+                outline: none;
+                transition: all 200ms ease;
+
+                &:focus-visible{
+                    border-color: var(--primary);
+                }
+            }
+
+            & h4{
+                margin-bottom: 10px;
+            }
+        }
+
+        & #priorityInput{
+            width: 100%;
+
+            & .radiosDiv{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            & .radio{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:calc(50% - 10px);
+                gap: 5px;
+
+                & input{
+                    width:1rem;
+                    height: 1rem;
+                    appearance: none;
+                    border: solid 1px gray;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:checked{
+                        border-color: var(--secondary);
+                    }
+
+                    &:checked::before{
+                        content: "";
+                        width: 0.6rem;
+                        height: 0.6rem;
+                        background: var(--primary);
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                & label{
+                    width: 4rem;
+                    text-align: center;
+                    color: white;
+                    border-radius: 15px;
+                    padding: 2px 6px;
+                    font-size: var(--text-xs);
+                    font-weight: bold;
+                }
+
+                & #lowLabel{
+                    background: var(--low);
+                }
+
+                & #mediumLabel{
+                    background: var(--success);
+                }
+
+                & #highLabel{
+                    background: var(--warning);
+                }
+
+                & #urgentLabel{
+                    background: var(--danger);
+                }
+            }
+        }
+
+        & .buttons{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            align-items: center;
+
+            & button{
+                width: 7rem;
+                height: 2.7rem;
+                font-weight: bold;
+                color: white;
+                border-radius: var(--radius);
+                transition: all 200ms ease;
+
+                &:active{
+                    transform: scale(0.95);
+                }
+            }
+
+            & #closeNewTaskButton{
+                background: var(--danger);
+            }
+
+            & #createNewTaskButton{
+                background: var(--primary);
+            }
+        }
+    }
+
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 ._index-tarefas-pendentes{
     width: 100%;
     margin-top:1rem;

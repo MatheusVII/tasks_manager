@@ -1,4 +1,4 @@
-import { mobileNav } from "./components/index.js";
+import { mobileNav, newTaskModal, closeModals } from "./components/index.js";
 
 const btns = document.querySelectorAll('._mobile-nav .main button');
 btns.forEach(btn => {
@@ -6,3 +6,9 @@ btns.forEach(btn => {
         mobileNav(btn.id);
     })
 })
+
+document.querySelector("#newTaskButton").addEventListener("click", newTaskModal);
+
+document.querySelector("#overflow").addEventListener("click", closeModals);
+
+document.querySelector("#closeNewTaskButton").addEventListener("click", newTaskModal);

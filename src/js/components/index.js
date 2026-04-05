@@ -9,3 +9,19 @@ export function mobileNav(id){
 
     btn.classList.add('active');
 }
+
+export function newTaskModal(){
+    const modal = document.querySelector("#newTaskModal");
+    const overflow = document.querySelector("#overflow");
+
+    modal.classList.toggle('active');
+    overflow.classList.toggle('active');
+}
+
+export function closeModals(){
+    const modal = document.querySelector("#newTaskModal");
+    const overflow = document.querySelector("#overflow");
+
+    modal.classList.remove('active');
+    overflow.classList.remove('active');
+}
