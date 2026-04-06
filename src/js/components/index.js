@@ -31,3 +31,13 @@ export function closeModals(){
     modal.classList.remove('active');
     overflow.classList.remove('active');
 }
+
+export function restartMatchFilter(){
+    const input = document.querySelector("input[name='matchFilter']").value;
+
+    if(input.length === 0){
+        return true
+    }
+
+    return false
+}

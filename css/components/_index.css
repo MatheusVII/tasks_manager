@@ -86,11 +86,11 @@
                 & input{
                     width:1rem;
                     height: 1rem;
-                    appearance: none;
                     border: solid 1px gray;
                     border-radius: 50%;
                     cursor: pointer;
                     position: relative;
+                    background-color: white;
 
                     &:checked{
                         border-color: var(--secondary);
@@ -177,6 +177,127 @@
     width: 100%;
     margin-top:1rem;
     padding: 10px;
+
+    & .filters{
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        & h4{
+            margin-bottom: 10px;
+        }
+
+        & .check{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+            
+            & p{
+                width: 4rem;
+                text-align: center;
+                color: white;
+                border-radius: 15px;
+                padding: 2px 6px;
+                font-size: var(--text-xs);
+                font-weight: bold;
+
+                &.low{
+                    background: var(--low);
+                }
+
+                &.medium{
+                    background: var(--success);
+                }
+
+                &.high{
+                    background: var(--warning);
+                }
+
+                &.urgent{
+                    background: var(--danger);
+                }
+            }
+
+            & input{
+                width: 1.2rem;
+                height: 1.2rem;
+                accent-color: var(--success);
+                border-radius: var(--radius);
+            }
+        }
+
+        & .right{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            & .searchFilter{
+                width:100%;
+                display: flex;
+                gap: 10px;
+
+                & input{
+                    padding: 10px;
+                    height: 2.5rem;
+                    border-radius: var(--radius);
+                    border: solid 2px white;
+                    font-size: var(--text-sm);
+                    width: 100%;
+                    transition: all 200ms ease;
+
+                    &:focus-visible{
+                        border-color: var(--primary);
+                    }
+                }
+
+                & button{
+                    width:4rem;
+                    height:100%;
+                    background: var(--primary);
+                    border-radius: var(--radius);
+                    transition: all 200ms ease;
+
+                    &:active{
+                        transform: scale(0.95);
+                    }
+                }
+            }
+        }   
+
+        & .orderFilter{
+            margin-top: 30px;
+            position: relative;
+            display: inline-block;
+
+            & select{
+                height: 2.5rem;
+                border-radius: var(--radius);
+                border: solid 2px white;
+                padding: 10px 1.5rem 10px 10px;
+                font-size: var(--text-sm);
+                transition: all 200ms ease;
+                appearance: none;
+                position: relative;
+
+                &:focus-visible{
+                    border-color: var(--primary);
+                }
+            }
+
+            &::after{
+                content: "▾";
+                position: absolute;
+                right: 8px;
+                top: 45%;
+                font-size: 20px;
+                transform: translateY(-50%);
+                pointer-events: none;
+                color: var(--secondary);
+            }
+        }
+    }
 
     & .prioridade{
         width: 100%;

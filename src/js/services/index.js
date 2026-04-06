@@ -2,9 +2,12 @@ import { newTaskModal } from "../components/index.js";
 
 export async function createTask(){
     const title = document.querySelector("input[name='title']").value;
-    const priority = document.querySelector("input[name='priority']:checked")?.value;
+    const selected = document.querySelector("input[name='priority']:checked");
+    const priority = selected.getAttribute("id");
     const date = document.querySelector("input[name='dueDate']").value;
     const description = document.querySelector("textarea[name='description']").value
+
+    console.log(title, priority, date, description);
 
     const res = await fetch("http://localhost:3000/api/tasks", {
         method: "POST",
@@ -25,12 +28,28 @@ export async function createTask(){
 export async function listTasks(){
     const tasksList = document.querySelector("#tasksList");
     const priorities = {low: {text: "Baixa", class: "low"}, medium: { text: "Media", class: "medium"}, high: { text: "Alta", class: "high"}, urgent: { text: "Urgente", class: "urgent"}};
+    const priorityFilter = document.querySelectorAll("input[name='priorityFilter']");
+    const orderFilter = document.querySelector("select[name='orderFilter']").value;
+    const matchFilter = document.querySelector("input[name='matchFilter']").value;
 
-    const res = await fetch("http://localhost:3000/api/tasks/search", { method: "GET" });
+    let priorityArray = [];
 
-    const data = await res.json()
+    priorityFilter.forEach(p => {
+        if(p.checked){
+            priorityArray.push(p.value);
+        }
+    })
 
-    if(res.status === 200){
+    const priorityJoin = priorityArray.join(','); 
+
+    const res = await fetch(`http://localhost:3000/api/tasks/search?priority=${priorityJoin}&priorityOrder=${orderFilter}&match=${matchFilter}`, { method: "GET" });
+
+    const data = await res.json();
+
+    tasksList.innerHTML = "";
+
+    if(res.status === 200 && priorityArray.length != 0){
+        
         data.data.forEach(task => {
             let priority = task.priority;
             let createdDate = new Date(task.createdAt).toLocaleDateString("pt-BR");

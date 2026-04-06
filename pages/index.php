@@ -27,15 +27,15 @@
                         </div>
                         <div class="radio">
                             <input type="radio" name="priority" id="medium" value="medium">
-                            <label for="low" id="mediumLabel">Media</label>
+                            <label for="medium" id="mediumLabel">Media</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="priority" id="high" value="high">
-                            <label for="low" id="highLabel">Alta</label>
+                            <label for="high" id="highLabel">Alta</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="priority" id="urgent" value="urgent">
-                            <label for="low" id="urgentLabel">Urgente</label>
+                            <label for="urgent" id="urgentLabel">Urgente</label>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,41 @@
                 <h2>Tarefas Pendentes</h2>
                 <button id="newTaskButton">Nova Tarefa</button>
             </div>
+            <div class="filters">
+                <div class="priorityFilter">
+                    <h4>Filtros</h4>
+                    <div class="check">
+                        <input type="checkbox" name="priorityFilter" id="priorityFilter" value="low" checked>
+                        <p class="low">Baixa</p>
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" name="priorityFilter" id="priorityFilter" value="medium" checked>
+                        <p class="medium">Medium</p>
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" name="priorityFilter" id="priorityFilter" value="high" checked>
+                        <p class="high">High</p>
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" name="priorityFilter" id="priorityFilter" value="urgent" checked>
+                        <p class="urgent">Urgent</p>
+                    </div>
+                </div>
 
+                <div class="right">
+                    <div class="orderFilter">
+                        <select name="orderFilter" id="orderFilter">
+                            <option value="asc" selected>Ordem de prioridade crescente</option>
+                            <option value="desc">Ordem de prioridade decrescente</option>
+                        </select>
+                    </div>
+                    <div class="searchFilter">
+                        <input type="search" name="matchFilter" id="matchFilter" placeholder="Pesquisar pelo titulo...">
+                        <button id="matchFilterButton">A</button>
+                    </div>
+                </div>
+
+            </div>
             <ul class="lista-tarefas-pendentes" id="tasksList">
                 <!-- <li>
                     <div class="prioridade">
