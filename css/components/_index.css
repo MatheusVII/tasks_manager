@@ -90,7 +90,6 @@
                     border-radius: 50%;
                     cursor: pointer;
                     position: relative;
-                    background-color: white;
 
                     &:checked{
                         border-color: var(--secondary);
@@ -258,9 +257,17 @@
                     background: var(--primary);
                     border-radius: var(--radius);
                     transition: all 200ms ease;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     &:active{
                         transform: scale(0.95);
+                    }
+
+                    & img{
+                        width:1.7rem;
+                        height: 1.7rem;
                     }
                 }
             }

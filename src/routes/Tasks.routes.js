@@ -84,4 +84,24 @@ router.post('/tasks', async (req, res) => {
     }
 })
 
+router.put('/tasks/state/:id', async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { state } = req.body;
+
+        await Tasks.update({
+            state: state
+        }, {
+            where: {
+                id: id
+            }
+        });
+
+        return res.status(204).json();
+    } catch(err){
+        console.log(err);
+        return res.status(500).json({message: "Internal server error"});
+    }
+})
+
 export default router;

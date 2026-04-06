@@ -22,6 +22,7 @@ export async function createTask(){
 
    if(res.status === 201){
         newTaskModal();
+        listTasks();
    }    
 }
 
@@ -31,6 +32,8 @@ export async function listTasks(){
     const priorityFilter = document.querySelectorAll("input[name='priorityFilter']");
     const orderFilter = document.querySelector("select[name='orderFilter']").value;
     const matchFilter = document.querySelector("input[name='matchFilter']").value;
+    const mobileStateFilter = document.querySelector("button[name='mobileStateFilter'].active");
+    const state = mobileStateFilter.dataset.state;
 
     let priorityArray = [];
 
@@ -42,7 +45,7 @@ export async function listTasks(){
 
     const priorityJoin = priorityArray.join(','); 
 
-    const res = await fetch(`http://localhost:3000/api/tasks/search?priority=${priorityJoin}&priorityOrder=${orderFilter}&match=${matchFilter}`, { method: "GET" });
+    const res = await fetch(`http://localhost:3000/api/tasks/search?priority=${priorityJoin}&priorityOrder=${orderFilter}&match=${matchFilter}&state=${state}`, { method: "GET" });
 
     const data = await res.json();
 
@@ -59,7 +62,7 @@ export async function listTasks(){
                 <li>
                     <div class="prioridade">
                         <p class='${priorities[priority].class}'>${priorities[priority].text}</p>
-                        <button><img src="../assets/icons/concluida.png" alt=""></button>
+                        <button id='completeTaskButton' data-id='${task.id}'><img src="../assets/icons/concluida.png" alt=""></button>
                     </div>
                     <div class="titulo">
                         <h3>${task.title}</h3>
@@ -85,5 +88,19 @@ export async function listTasks(){
 
             tasksList.appendChild(li);
         })
+    }
+}
+
+export async function completeTask(id){
+    const res = await fetch(`http://localhost:3000/api/tasks/state/${id}`,{
+        method: "PUT",
+        headers: { "Content-Type" : "application/json"},
+        body: JSON.stringify({
+            state: "completed"
+        })
+    });
+
+    if(res.status === 204){
+       listTasks(); 
     }
 }

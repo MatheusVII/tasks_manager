@@ -11,3 +11,12 @@ Content-Type: application/json
     "dueDate": "2026-05-05",
     "description":"Uma tarefa criada para teste da rota post"
 }
+
+###
+
+PUT http://localhost:3000/api/tasks/state/2
+Content-Type: application/json
+
+{
+    "state" : "completed"
+}

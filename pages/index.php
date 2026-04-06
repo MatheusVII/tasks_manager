@@ -68,15 +68,15 @@
                     </div>
                     <div class="check">
                         <input type="checkbox" name="priorityFilter" id="priorityFilter" value="medium" checked>
-                        <p class="medium">Medium</p>
+                        <p class="medium">Media</p>
                     </div>
                     <div class="check">
                         <input type="checkbox" name="priorityFilter" id="priorityFilter" value="high" checked>
-                        <p class="high">High</p>
+                        <p class="high">Alta</p>
                     </div>
                     <div class="check">
                         <input type="checkbox" name="priorityFilter" id="priorityFilter" value="urgent" checked>
-                        <p class="urgent">Urgent</p>
+                        <p class="urgent">Urgente</p>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                     </div>
                     <div class="searchFilter">
                         <input type="search" name="matchFilter" id="matchFilter" placeholder="Pesquisar pelo titulo...">
-                        <button id="matchFilterButton">A</button>
+                        <button id="matchFilterButton"><img src="../assets/icons/lupa.png" alt="lupa"></button>
                     </div>
                 </div>
 

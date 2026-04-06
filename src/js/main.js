@@ -1,7 +1,7 @@
 import { mobileNav, newTaskModal, closeModals, restartMatchFilter } from "./components/index.js";
-import { createTask, listTasks } from "./services/index.js";
+import { createTask, listTasks, completeTask } from "./services/index.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async() => {
     const btns = document.querySelectorAll('._mobile-nav .main button');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
-    listTasks();
+    await listTasks();
 
     document.querySelector("#newTaskButton").addEventListener("click", newTaskModal);
 
@@ -33,4 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
             listTasks()
         }
     });
+
+    const mobileBtns = document.querySelectorAll("button[name='mobileStateFilter']");
+    mobileBtns.forEach(btn => {
+        btn.addEventListener("click", listTasks);
+    })
+
+    const completeTaskButtons = document.querySelectorAll("#completeTaskButton");
+    completeTaskButtons.forEach(btn => {
+        btn.addEventListener("click", async() => {
+            completeTask(btn.dataset.id);
+        });
+    })
 });
