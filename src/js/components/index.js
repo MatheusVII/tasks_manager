@@ -1,11 +1,25 @@
 export function mobileNav(id){
     const btns = document.querySelectorAll(`._mobile-nav .main button`);
+    const stateTitle = document.querySelector("#stateTitle");
 
     btns.forEach(btn => {
         btn.classList.remove('active');
     })
 
     const btn = document.querySelector(`._mobile-nav .main #${id}`);
+
+    const state = btn.dataset.state;
+
+    switch (state) {
+        case "pending": 
+            stateTitle.textContent = "Tarefas Pendentes";
+            break;
+        case "completed":
+            stateTitle.textContent = "Tarefas Completadas";
+            break
+        case "canceled":
+            stateTitle.textContent = "Tarefas Canceladas";
+    };
 
     btn.classList.add('active');
 }

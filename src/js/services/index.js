@@ -35,6 +35,8 @@ export async function listTasks(){
     const mobileStateFilter = document.querySelector("button[name='mobileStateFilter'].active");
     const state = mobileStateFilter.dataset.state;
 
+    let actualState;
+
     let priorityArray = [];
 
     priorityFilter.forEach(p => {
@@ -55,6 +57,7 @@ export async function listTasks(){
         
         data.data.forEach(task => {
             let priority = task.priority;
+            actualState = task.state;
             let createdDate = new Date(task.createdAt).toLocaleDateString("pt-BR");
             let dueDate = new Date(task.dueDate).toLocaleDateString("pt-BR");
             let li = document.createElement("li");
@@ -62,7 +65,7 @@ export async function listTasks(){
                 <li>
                     <div class="prioridade">
                         <p class='${priorities[priority].class}'>${priorities[priority].text}</p>
-                        <button id='completeTaskButton' data-id='${task.id}'><img src="../assets/icons/concluida.png" alt=""></button>
+                        ${task.state === 'pending' ? `<button id='completeTaskButton' data-id='${task.id}'><img src="../assets/icons/concluida.png" alt=""></button>` : ''}
                     </div>
                     <div class="titulo">
                         <h3>${task.title}</h3>
@@ -81,26 +84,49 @@ export async function listTasks(){
                                 <h3>${dueDate}</h3>
                             </div>
                         </div>
-                        <button><img src="../assets/icons/lixeira.png" alt=""></button>
+                        ${task.state === 'pending' ? `<button id='cancelTaskButton' data-id='${task.id}'><img src="../assets/icons/cancelar.png" alt=""></button>` : `<button id='deleteTaskButton' data-id='${task.id}'><img src="../assets/icons/lixeira.png" alt=""></button>`}
                     </div>
                 </li>
             `
 
             tasksList.appendChild(li);
-        })
+        });
+
+        if(actualState != 'pending'){
+            const deleteTaskButtons = document.querySelectorAll("#deleteTaskButton");
+            deleteTaskButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    deleteTask(btn.dataset.id);
+                })
+            });
+        }
     }
 }
 
-export async function completeTask(id){
+export async function alterState(id, state){
     const res = await fetch(`http://localhost:3000/api/tasks/state/${id}`,{
         method: "PUT",
         headers: { "Content-Type" : "application/json"},
         body: JSON.stringify({
-            state: "completed"
+            state: state
         })
     });
 
     if(res.status === 204){
        listTasks(); 
+    }
+}
+
+export async function deleteTask(id){
+    id = parseInt(id);
+
+    console.log("entrou");
+
+    const res = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+        method: "DELETE"
+    });
+
+    if(res.status === 204){
+        listTasks()
     }
 }

@@ -104,4 +104,22 @@ router.put('/tasks/state/:id', async (req, res) => {
     }
 })
 
+router.delete('/tasks/:id', async(req, res) => {
+    try{
+        const id = parseInt(req.params.id);
+
+        await Tasks.destroy({
+            where: {
+                id: id
+            }
+        })
+
+        return res.status(204).json();
+    
+    } catch(err){
+        console.log(err);
+        return res.status(500).json({message: "Internal server error"});
+    }
+})
+
 export default router;

@@ -20,3 +20,7 @@ Content-Type: application/json
 {
     "state" : "completed"
 }
+
+###
+
+DELETE http://localhost:3000/api/tasks/2

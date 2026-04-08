@@ -1,5 +1,5 @@
 import { mobileNav, newTaskModal, closeModals, restartMatchFilter } from "./components/index.js";
-import { createTask, listTasks, completeTask } from "./services/index.js";
+import { createTask, listTasks, alterState } from "./services/index.js";
 
 document.addEventListener("DOMContentLoaded", async() => {
     const btns = document.querySelectorAll('._mobile-nav .main button');
@@ -28,21 +28,30 @@ document.addEventListener("DOMContentLoaded", async() => {
 
     document.querySelector("#matchFilterButton").addEventListener("click", listTasks);
 
-    document.querySelector("input[name='matchFilter']").addEventListener("input", () => {
+    document.querySelector("input[name='matchFilter']").addEventListener("input", async () => {
         if(restartMatchFilter()){
-            listTasks()
+            await listTasks();
         }
     });
 
     const mobileBtns = document.querySelectorAll("button[name='mobileStateFilter']");
     mobileBtns.forEach(btn => {
-        btn.addEventListener("click", listTasks);
+        btn.addEventListener("click", async () => {
+            await listTasks();
+        });
     })
 
     const completeTaskButtons = document.querySelectorAll("#completeTaskButton");
     completeTaskButtons.forEach(btn => {
         btn.addEventListener("click", async() => {
-            completeTask(btn.dataset.id);
+            alterState(btn.dataset.id, "completed");
         });
+    })
+
+    const cancelTaskButtons = document.querySelectorAll("#cancelTaskButton");
+    cancelTaskButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            alterState(btn.dataset.id, "canceled");
+        })
     })
 });

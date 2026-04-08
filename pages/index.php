@@ -56,7 +56,7 @@
     <main>
         <section class="_index-tarefas-pendentes">
             <div class="header">
-                <h2>Tarefas Pendentes</h2>
+                <h2 id="stateTitle">Tarefas Pendentes</h2>
                 <button id="newTaskButton">Nova Tarefa</button>
             </div>
             <div class="filters">
