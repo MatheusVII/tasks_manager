@@ -40,18 +40,4 @@ document.addEventListener("DOMContentLoaded", async() => {
             await listTasks();
         });
     })
-
-    const completeTaskButtons = document.querySelectorAll("#completeTaskButton");
-    completeTaskButtons.forEach(btn => {
-        btn.addEventListener("click", async() => {
-            alterState(btn.dataset.id, "completed");
-        });
-    })
-
-    const cancelTaskButtons = document.querySelectorAll("#cancelTaskButton");
-    cancelTaskButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            alterState(btn.dataset.id, "canceled");
-        })
-    })
 });

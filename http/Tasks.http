@@ -1,6 +1,9 @@
 GET http://localhost:3000/api/tasks/search?priority=low,medium
 
 ###
+GET http://localhost:3000/api/tasks/18
+
+###
 
 POST http://localhost:3000/api/tasks
 Content-Type: application/json
@@ -19,6 +22,17 @@ Content-Type: application/json
 
 {
     "state" : "completed"
+}
+
+###
+PUT http://localhost:3000/api/tasks/21
+Content-Type: application/json
+
+{
+    "title":"Nova tarefa editada",
+    "priority":"urgent",
+    "description":"nova descricao atualizada",
+    "dueDate":"2026-05-02"
 }
 
 ###

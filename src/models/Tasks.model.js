@@ -34,6 +34,10 @@ export const Tasks = sequelize.define('Tasks', {
     dueDate: {
         type: DataTypes.DATE,
         allowNull: true
+    },
+    state_changed_at: {
+        type: DataTypes.DATE,
+        allowNull: true
     }
 },{
     tableName: 'tasks',

@@ -58,6 +58,23 @@ router.get('/tasks/search', async (req, res) => {
 
 });
 
+router.get('/tasks/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+
+        const task = await Tasks.findByPk(id);
+
+        if(!task){
+            return res.status(404).json({message: "Not found"});
+        }
+
+        return res.status(200).json({data: task});
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({message: "Internal server error"});
+    }
+})
+
 router.post('/tasks', async (req, res) => {
     try{
         const { title, priority, dueDate, description } = req.body;
@@ -87,10 +104,11 @@ router.post('/tasks', async (req, res) => {
 router.put('/tasks/state/:id', async (req, res) => {
     try{
         const { id } = req.params;
-        const { state } = req.body;
+        const { state, state_changed_at } = req.body;
 
         await Tasks.update({
-            state: state
+            state: state,
+            state_changed_at: state_changed_at
         }, {
             where: {
                 id: id
@@ -101,6 +119,33 @@ router.put('/tasks/state/:id', async (req, res) => {
     } catch(err){
         console.log(err);
         return res.status(500).json({message: "Internal server error"});
+    }
+})
+
+router.put('/tasks/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        const { title, priority, description, dueDate } = req.body;
+
+        if(!title || !priority || !description || !dueDate){
+            return res.status(400).json({message: "Todos os campos sao obrigatorios"});
+        }
+
+        await Tasks.update({
+            title: title, 
+            description: description,
+            priority: priority,
+            dueDate: dueDate 
+        }, {
+            where: {
+                id: id
+            }
+        });
+
+        return res.status(204).json();
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({message: "Intrenal server error"});
     }
 })
 
